@@ -1,0 +1,565 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block meta_title %} Allthingbiznes {% endblock %}
+{% block meta_des %} All Things Business equips and supports entrepreneurs in starting, growing, and succeeding in their ventures through idea exchange, advising, marketing support, and mentorship opportunities.  {% endblock %}
+{% block meta_key %} Entrepreneurial Support, Business Growth, Venture Success, Idea Exchange,Entrepreneurial Ventures, Starting a Business, Entrepreneurial Ideas, Business Startups, Startup Support, Startup Growth, Startup Ideas,Entrepreneurial Marketing, Marketing Support for Startups, Marketing Strategies for Entrepreneurs,Creative Business Ideas, Innovative Ventures, Business Idea Exchange
+Success in Business: Business Success Strategies, Strategies for Venture Success, Successful Entrepreneurship {% endblock %}
+{% block meta_url %} https://www.{{request.get_host}} {% endblock %}
+{% block og_meta_title %}Allthingbiznes {% endblock %}
+{% block og_meta_des %} All Things Business equips and supports entrepreneurs in starting, growing, and succeeding in their ventures through idea exchange, advising, marketing support, and mentorship opportunities.   {% endblock %}
+
+
+
+{% block content %}
+
+{% if not messages %}
+<div id="overlay">
+    <div id="popup-form" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" onclick="hidePops()" class="close" data-dismiss="modal-dialog">&times;</button>
+                <img class="modal-title" src="{% static 'img/logo1.png' %}"
+                    style="width: 80px;height: auto;margin: auto;" alt="" srcset="">
+
+            </div>
+            <div class="modal-body">
+                <h5>Enquiry us ?</h5>
+                <p>Get more details from us , just Enquiry us</p>
+                <form method="post" style="width: 100%;padding: 20px;" action="{% url 'getcontactus' %}" role="form"
+                    class="contactus-form popups">
+                    {% csrf_token %}
+                    <!-- First Row: Full Name and Email -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="fullName">Full Name:</label>
+                                <input type="text" name="full_name" class="form-control" id="fullName"
+                                    placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" class="form-control" id="email"
+                                    placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Row: Phone Number and Business Type -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number:</label>
+                                <input type="tel" name="phone_number" class="form-control" id="phoneNumber"
+                                    placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="businessType">Business Type:</label>
+                                <select class="form-control" name="business" id="businessType" required>
+                                    <option value="" disabled selected>Select your business type</option>
+                                    <option value="Small Business">Small Business</option>
+                                    <option value="Medium Business">Medium Business</option>
+                                    <option value="Large Business">Large Business</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Row: Message -->
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea style="border-radius: 15px;" class="form-control" name="message" id="message" rows="4"
+                            placeholder="Enter your message"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="button-27">Send Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+   {% else  %}
+</div>
+{% endif %}
+
+
+
+<div style="background-image:url('{% static 'img/backgrounds/1.jpg' %}');" class="top-content ">
+           
+    <div class="container">
+        
+            
+                <div class="hero-card wow slideInLeft">
+                    <h1 style="text-align: left;">All Business Consulting Services</h1>
+                    <div>
+                        <p style="text-align: left;">
+                            Collaborate for business growth into Envision, inspire, and transform with expert analytics in scaling.
+                        </p>
+                        <form method="post" action="{% url 'getemail' %}" class="quote">
+                            {% csrf_token %}
+                            <input placeholder="Enter Email" name="email" class="inputs" />
+                            <button type="submit" role="button" class="button-27">Get Quote</button>
+                        </form>
+                    </div>
+                </div>
+                
+            
+        
+    </div>
+   
+</div>
+
+<div class="container sectionmb">
+    <div class="herocards   ">
+        <div class="service-col wow slideInUp" data-wow-delay="0s">
+            
+            <dotlottie-player src="{% static 'img/JSON/CARD 1.lottie' %}" background="transparent" speed="1" style="width: 235px; height: 200px;margin: auto;" loop autoplay></dotlottie-player>
+            <div>
+                <h4>Legalization, Registration & Tax filing</h4>
+                <p>We'll register your business, manage tax filings, and handle GST for smooth operations, ensuring seamless compliance with legal requirements</p>
+                <a href="{% url 'service' %}"><button style="margin-top: 22px;" class="button-18" role="button">View details</button></a>
+            </div>
+        </div>
+        <div class="service-col wow slideInUp" data-wow-delay="0.3s">
+            
+            <dotlottie-player src="{% static 'img/JSON/card 2.lottie' %}" background="transparent" speed="1" style="width: 245px; height: '200px';margin: auto;" loop autoplay></dotlottie-player>
+            <div>
+                <h4>Digital Business Solutions Suite</h4>
+                <p>We specialize in crafting websites, developing e-commerce platforms, creating mobile apps, and implementing ERP software for efficiency.</p>
+                <a href="{% url 'service' %}"><button style="margin-top: 22px;" class="button-18" role="button">View details</button></a>
+            </div>
+        </div>
+        <div class="service-col wow slideInUp" data-wow-delay="0.6s">
+            
+            <dotlottie-player src="{% static 'img/JSON/card 3.lottie' %}" background="transparent" speed="1" style="width: 300px; height: 195px;margin: auto;" loop autoplay></dotlottie-player>
+            <div>
+                <h4>Digital marketing & brand management</h4>
+                <p>We handle comprehensive digital marketing, brand management, social media, and overall business management for your convenience.</p>
+                <a href="{% url 'service' %}"><button style="margin-top: 22px;" class="button-18" role="button">View details</button></a>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+
+<!-- about us sections -->
+<section  class="container aboutus sectionmb">
+    
+    <div class="aboutUs-left wow slideInLeft ">
+        <div><h4 class="section-title-blue">About us</h4></div>
+        <div style="margin-top: 22px;"><h2>About our AllThingsBizness </h2></div>
+        <div style="margin-top: 18px;"><p1>We create professional guidance for your business needs</p1></div>
+        <div style="margin-top: 11px;"><p>At AllThings Business, we are here to help you with consulting to start a business, providing guidance in registration, website development, digital marketing, mentoring, and brand marketing.</p></div>
+        <div style="margin-top: 32px;margin-bottom: 32px;">
+            <a href="{% url 'aboutus' %}"><button class="button-18">View details </button></a>
+        </div>
+        <hr>
+        <div class="about-bottom">
+            <div class="chunk">
+                <h3><svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.6931 0.904103C10.9925 -0.0172079 12.2959 -0.0172093 12.5952 0.904101L14.483 6.71395C14.6168 7.12598 15.0008 7.40494 15.434 7.40494H21.5429C22.5116 7.40494 22.9144 8.64455 22.1306 9.21395L17.1885 12.8046C16.838 13.0593 16.6913 13.5107 16.8252 13.9227L18.7129 19.7325C19.0123 20.6538 17.9578 21.42 17.1741 20.8506L12.232 17.2599C11.8815 17.0052 11.4069 17.0052 11.0564 17.2599L6.11423 20.8506C5.33051 21.42 4.27603 20.6538 4.57538 19.7325L6.46312 13.9227C6.59699 13.5107 6.45033 13.0593 6.09985 12.8046L1.15769 9.21395C0.373979 8.64455 0.776753 7.40494 1.74548 7.40494H7.85432C8.28754 7.40494 8.6715 7.12598 8.80537 6.71395L10.6931 0.904103Z" fill="#FFCC4A"/>
+                    </svg>
+                     300+</h3>
+                <p>Business Services</p>
+            </div>
+            <div class="chunk">
+                <h3><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.3982 0.100098C9.1848 0.100098 7.0211 0.756448 5.18073 1.98615C3.34035 3.21585 1.90595 4.96367 1.05891 7.00859C0.21188 9.05351 -0.00974232 11.3037 0.422072 13.4746C0.853885 15.6454 1.91974 17.6395 3.48485 19.2046C5.04997 20.7697 7.04404 21.8356 9.21492 22.2674C11.3858 22.6992 13.636 22.4776 15.6809 21.6306C17.7258 20.7835 19.4736 19.3491 20.7033 17.5087C21.933 15.6684 22.5894 13.5047 22.5894 11.2913C22.5837 8.32493 21.4028 5.48172 19.3053 3.3842C17.2078 1.28668 14.3645 0.105786 11.3982 0.100098ZM15.2721 7.84783C15.5275 7.84783 15.7771 7.92356 15.9895 8.06545C16.2018 8.20734 16.3673 8.40901 16.4651 8.64497C16.5628 8.88092 16.5884 9.14055 16.5386 9.39104C16.4887 9.64152 16.3657 9.87161 16.1852 10.0522C16.0046 10.2328 15.7745 10.3558 15.524 10.4056C15.2735 10.4554 15.0139 10.4299 14.7779 10.3321C14.542 10.2344 14.3403 10.0689 14.1984 9.85652C14.0565 9.64417 13.9808 9.39451 13.9808 9.13912C13.9808 8.79665 14.1168 8.4682 14.359 8.22604C14.6012 7.98388 14.9296 7.84783 15.2721 7.84783ZM7.52434 7.84783C7.77973 7.84783 8.02939 7.92356 8.24174 8.06545C8.45409 8.20734 8.6196 8.40901 8.71734 8.64497C8.81507 8.88092 8.84064 9.14055 8.79082 9.39104C8.74099 9.64152 8.61801 9.87161 8.43742 10.0522C8.25683 10.2328 8.02674 10.3558 7.77626 10.4056C7.52577 10.4554 7.26614 10.4299 7.03019 10.3321C6.79423 10.2344 6.59256 10.0689 6.45067 9.85652C6.30878 9.64417 6.23305 9.39451 6.23305 9.13912C6.23305 8.79665 6.3691 8.4682 6.61126 8.22604C6.85343 7.98388 7.18187 7.84783 7.52434 7.84783ZM16.6172 14.3043C16.0883 15.2205 15.3276 15.9813 14.4115 16.5103C13.4953 17.0393 12.4561 17.3178 11.3982 17.3178C10.3403 17.3178 9.30109 17.0393 8.38496 16.5103C7.46883 15.9813 6.7081 15.2205 6.17925 14.3043C6.11187 14.2065 6.06544 14.0959 6.04288 13.9794C6.02031 13.8628 6.02209 13.7429 6.04811 13.627C6.07412 13.5112 6.12382 13.402 6.19406 13.3063C6.26431 13.2106 6.35359 13.1305 6.45629 13.0709C6.55899 13.0114 6.6729 12.9738 6.79085 12.9604C6.90881 12.947 7.02826 12.9581 7.1417 12.9931C7.25514 13.0281 7.36012 13.0861 7.45005 13.1636C7.53997 13.2411 7.61289 13.3364 7.66423 13.4434C8.04335 14.098 8.58789 14.6414 9.24325 15.0192C9.89861 15.397 10.6418 15.5958 11.3982 15.5958C12.1547 15.5958 12.8978 15.397 13.5532 15.0192C14.2085 14.6414 14.7531 14.098 15.1322 13.4434C15.2552 13.265 15.4409 13.1395 15.6523 13.0921C15.8637 13.0446 16.0853 13.0785 16.2727 13.1872C16.4602 13.2959 16.5998 13.4713 16.6636 13.6783C16.7275 13.8854 16.7109 14.1089 16.6172 14.3043Z" fill="#4EAF4E"/>
+                    </svg>
+                     200+</h3>
+                <p>Happy Customer</p>
+            </div>
+            
+        </div>
+        <hr>
+        <div></div>
+    </div>
+    <div class="aboutUs-right wow slideInRight">
+       
+        
+        <dotlottie-player class="abotus-ani" src="{% static 'img/JSON/Animation - 1702558628899.lottie' %}" background="transparent" speed="1" style="width: 500px; height: auto;" loop autoplay></dotlottie-player>
+        <div class="float wow flipInY" data-wow-delay=".3s">
+            <svg width="80" height="80" viewBox="0 0 95 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30.7987 54.6189V41.1249C30.4607 41.3416 30.101 41.5322 29.7197 41.6969C29.347 41.8616 28.944 41.9829 28.5107 42.0609L28.2247 39.2529C28.5974 39.1749 29.0134 38.9886 29.4727 38.6939C29.932 38.3992 30.3567 38.0526 30.7467 37.6539C31.1367 37.2466 31.414 36.8349 31.5787 36.4189H34.1267V54.6189H30.7987ZM45.8303 54.9829C44.2963 54.9829 42.953 54.5842 41.8003 53.7869C40.6563 52.9809 39.7637 51.8586 39.1223 50.4199C38.481 48.9726 38.1603 47.2869 38.1603 45.3629C38.1603 43.5256 38.481 41.9092 39.1223 40.5139C39.7637 39.1099 40.6563 38.0179 41.8003 37.2379C42.953 36.4492 44.2963 36.0549 45.8303 36.0549C47.373 36.0549 48.7163 36.4492 49.8603 37.2379C51.013 38.0266 51.9057 39.1229 52.5383 40.5269C53.1797 41.9222 53.5003 43.5342 53.5003 45.3629C53.5003 47.2869 53.1797 48.9726 52.5383 50.4199C51.9057 51.8586 51.013 52.9809 49.8603 53.7869C48.7163 54.5842 47.373 54.9829 45.8303 54.9829ZM45.8303 51.9929C46.6537 51.9929 47.3903 51.7676 48.0403 51.3169C48.699 50.8662 49.219 50.1556 49.6003 49.1849C49.9817 48.2056 50.1723 46.9316 50.1723 45.3629C50.1723 43.2049 49.7563 41.6059 48.9243 40.5659C48.101 39.5172 47.0697 38.9929 45.8303 38.9929C44.5997 38.9929 43.5683 39.5129 42.7363 40.5529C41.9043 41.5842 41.4883 43.1876 41.4883 45.3629C41.4883 46.9142 41.679 48.1796 42.0603 49.1589C42.4417 50.1296 42.9573 50.8446 43.6073 51.3039C44.266 51.7632 45.007 51.9929 45.8303 51.9929ZM59.5338 52.1229V48.6389H56.0498V46.1949H59.5338V42.7109H62.1858V46.1949H65.6698V48.6389H62.1858V52.1229H59.5338Z" fill="#181818"/>
+                <path d="M94.9386 47.222C94.9386 73.2368 73.8494 94.326 47.8345 94.326C21.8197 94.326 0.730469 73.2368 0.730469 47.222C0.730469 21.2071 21.8197 0.11792 47.8345 0.11792C73.8494 0.11792 94.9386 21.2071 94.9386 47.222ZM5.44088 47.222C5.44088 70.6353 24.4212 89.6156 47.8345 89.6156C71.2479 89.6156 90.2282 70.6353 90.2282 47.222C90.2282 23.8086 71.2479 4.82833 47.8345 4.82833C24.4212 4.82833 5.44088 23.8086 5.44088 47.222Z" fill="#F1F1F1"/>
+                <path d="M47.8345 2.47312C47.8345 1.17238 48.8898 0.111778 50.189 0.17677C59.9847 0.666834 69.4057 4.20519 77.1186 10.327C85.4477 16.938 91.2949 26.1728 93.7088 36.529C96.1228 46.8853 94.9615 57.7537 90.4139 67.3661C85.8663 76.9785 78.2 84.7694 68.6621 89.4713C59.1242 94.1732 48.2759 95.5094 37.8821 93.2626C27.4883 91.0158 18.1605 85.3182 11.4162 77.0967C4.67189 68.8751 0.907913 58.6134 0.736583 47.9809C0.577929 38.135 3.50862 28.5077 9.08541 20.4395C9.82501 19.3695 11.3089 19.1783 12.3407 19.9705C13.3724 20.7626 13.5606 22.2378 12.8269 23.3119C7.89451 30.5333 5.30486 39.1226 5.44638 47.905C5.60058 57.4743 8.98815 66.7098 15.058 74.1092C21.1279 81.5086 29.5229 86.6364 38.8773 88.6585C48.2318 90.6807 57.9952 89.4781 66.5793 85.2464C75.1634 81.0147 82.0631 74.0029 86.156 65.3517C90.2488 56.7005 91.294 46.919 89.1214 37.5983C86.9488 28.2777 81.6864 19.9664 74.1902 14.0165C67.3103 8.55588 58.9204 5.37919 50.1887 4.89371C48.89 4.82151 47.8345 3.77387 47.8345 2.47312Z" fill="#4EAF4E"/>
+                <circle cx="12.9144" cy="19.5768" r="6.18981" fill="white" stroke="#4EAF4E" stroke-width="4"/>
+                </svg>
+                
+            <p>Market 
+                Experiences</p>
+                
+        </div>
+    </div>
+
+ 
+</section>
+
+<!-- clients -->
+<section  class="container sectionmb">
+    <div class="clients wow fadeInLeft">
+        <h3 class="section-title-orange">Clients</h3>
+        <h1 style="margin-bottom: 20px;">People Most Liked Services</h1>
+        <p style="margin-bottom: 40px;">More than 200+ constumers </p>
+        <div class="clients-box">
+            <div class="client-box-items wow slideInUp"  >
+                <img src="https://jerintechnology.com/wp-content/uploads/2023/10/cropped-jt-logo-2.png" alt="">
+            </div>
+            <div class="client-box-items  wow slideInUp" data-wow-delay=".02s">
+                <img src="https://accountiko.com/static/img/logo.png" alt="">
+            </div>
+            <div class="client-box-items  wow slideInUp" data-wow-delay=".04s">
+                <img src="https://saadanacademy.com/assets/images/logobig.png" alt="">
+            </div>
+            <div class="client-box-items  wow slideInUp" data-wow-delay=".06s">
+                <img src="https://ploxygen.org/images/logo.png" alt="">
+            </div>
+            <div class="client-box-items  wow slideInUp" data-wow-delay=".08s">
+                <img src="https://biznesmagazine.com/static/img/bizneslogo.png" alt="">
+            </div>
+            <div class="client-box-items  wow slideInUp" data-wow-delay=".1s">
+                <img src="{% static 'img/opal logo.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+    
+
+
+<section class="sectionmb" style="background-color: #111311;padding-bottom: 100px;padding-top: 80px;" >
+   
+    <div  class="container">
+        <div class="clients wow fadeInLeft">
+            <h3 class="section-title-green">Growing with our clients</h3>
+            <h1 style="margin-bottom: 20px;color: white;">10 Years of Experience</h1>
+            <p class="client-desc" style="margin-bottom: 40px;width: 458px;color: #CECECE;">Over a decade of expertise in transforming startups into successful business models. </p>
+            <div style="gap: 20px;" class="clients-box">
+               <div class="exp-box wow fadeInUp" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+                    <circle cx="26.43" cy="26.3889" r="26.3889" fill="#181818"/>
+                    <path d="M25.978 26.9961L17.9462 20.9722C17.8157 20.8731 17.7097 20.7453 17.6364 20.5987C17.5631 20.4521 17.5244 20.2906 17.5234 20.1267V15.371C17.5234 15.0907 17.6348 14.8219 17.833 14.6237C18.0312 14.4256 18.3 14.3142 18.5803 14.3142H33.3758C33.6561 14.3142 33.9249 14.4256 34.1231 14.6237C34.3213 14.8219 34.4326 15.0907 34.4326 15.371V20.0739C34.4316 20.2378 34.393 20.3993 34.3197 20.5458C34.2464 20.6924 34.1404 20.8202 34.0099 20.9194L25.978 26.9961Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M25.978 26.9961L17.9462 33.02C17.8157 33.1191 17.7097 33.2469 17.6364 33.3935C17.5631 33.5401 17.5244 33.7016 17.5234 33.8655V38.6212C17.5234 38.9015 17.6348 39.1703 17.833 39.3685C18.0312 39.5666 18.3 39.678 18.5803 39.678H33.3758C33.6561 39.678 33.9249 39.5666 34.1231 39.3685C34.3213 39.1703 34.4326 38.9015 34.4326 38.6212V33.9183C34.4316 33.7544 34.393 33.5929 34.3197 33.4464C34.2464 33.2998 34.1404 33.172 34.0099 33.0728L25.978 26.9961Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <h4>Consistency</h4>
+                  <p>We ensure consistency in your business management.</p>
+
+               </div>
+               <div class="exp-box wow fadeInUp" data-wow-delay=".08s">
+                <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="27.2913" cy="26.3889" r="26.3889" fill="#181818"/>
+                    <path d="M27.2616 38.841C34.1424 38.841 39.7204 33.263 39.7204 26.3822C39.7204 19.5014 34.1424 13.9233 27.2616 13.9233C20.3807 13.9233 14.8027 19.5014 14.8027 26.3822C14.8027 33.263 20.3807 38.841 27.2616 38.841Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.0879 33.572L18.6063 32.6505C18.7569 32.5577 18.8812 32.4278 18.9676 32.2734C19.0539 32.1189 19.0993 31.945 19.0995 31.768L19.1254 27.083C19.1275 26.8888 19.1861 26.6994 19.2941 26.5379L21.8638 22.5018C21.9409 22.3825 22.0414 22.2801 22.1591 22.2008C22.2769 22.1214 22.4095 22.0668 22.549 22.0401C22.6885 22.0134 22.8319 22.0153 22.9707 22.0455C23.1094 22.0758 23.2406 22.1339 23.3562 22.2163L25.8999 24.0591C26.1194 24.2121 26.3865 24.2812 26.6526 24.2538L30.7407 23.6958C30.9887 23.6616 31.2153 23.5368 31.3766 23.3453L34.2577 20.023C34.4286 19.8205 34.5166 19.5609 34.5043 19.2962L34.3616 16.1426" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M34.933 36.2066L33.5314 34.805C33.4017 34.6754 33.2408 34.5815 33.0642 34.5324L30.2739 33.8057C30.0289 33.7386 29.8169 33.584 29.6782 33.3711C29.5395 33.1583 29.4836 32.9019 29.5212 32.6506L29.8197 30.5482C29.8493 30.3714 29.9232 30.2049 30.0343 30.0642C30.1455 29.9236 30.2904 29.8133 30.4556 29.7436L34.4009 28.0954C34.5842 28.019 34.7855 27.9967 34.981 28.0312C35.1765 28.0657 35.358 28.1555 35.504 28.29L38.7355 31.249" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    
+                  <h4>Branching</h4>
+                  <p>We guarantee a more growth in your business</p>
+
+               </div>
+               <div class="exp-box wow fadeInUp" data-wow-delay=".08s">
+                <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="27.1526" cy="26.3889" r="26.3889" fill="#181818"/>
+                    <path d="M36.3921 34.2322H17.1836V18.2251" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36.3921 23.0271L29.9893 28.6296L23.5864 23.8275L17.1836 29.4299" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    
+                  <h4>Company Growth</h4>
+                  <p>We will elevate your business to the highest standards of success.</p>
+
+               </div>
+               <div class="exp-box wow fadeInUp" data-wow-delay=".08s">
+                <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="27.0159" cy="26.3889" r="26.3889" fill="#181818"/>
+                    <path d="M38.8118 35.6106H12.8867" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.2188 35.6105V20.0554H29.4778" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M36.7375 13.8335H29.4785V35.6106H36.7375V13.8335Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.9609 35.6104V26.2773H22.22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    
+                  <h4>Improvement</h4>
+                  <p>Podcasting operational change management  workflow.</p>
+
+               </div>
+            </div>
+        </div>
+    </div>
+    
+
+</section>
+
+
+<!-- accountiko  -->
+<section class="container sectionmb accountiko ">
+    <div class="acc-left wow slideInLeft">
+        <h3 style="width: 130px;"  class="section-title-orange">Features</h3>
+            <h1 style="margin-bottom: 20px;">Process Tracking through Accountiko </h1>
+            <p style="margin-bottom: 40px;text-align: justify;">We provide a dedicated business dashboard for tracking progress, uploading documents, and managing certificates and receipts in one centralized place for effective monitoring.</p>
+         <a target="_blank" href="https://accountiko.in/"><button class="button-18"  role="button">Explore Accountiko &nbsp; &rarr;</button></a>
+    </div>
+    <div class="acc-right wow slideInRight">
+            <img src="{% static 'img/acc.png' %}" alt="">
+            <!-- <img src="./assets/img/acc.png" alt=""> -->
+    </div>
+
+     
+</section>
+
+
+<section style="background-color: #F3F3F3;" class="sectionmb paddingvertical">
+    <div  class="container accountiko">
+        <div class="acc-right wow slideInLeft">
+            
+            <img src="{% static 'img/dig.png' %}" alt="">
+        </div>
+
+        <div style="width: 450px;" class="acc-left wow slideInRight">
+            <h3 style="width: 130px;"  class="section-title-orange">Features</h3>
+                <h1 style="margin-bottom: 20px;">Digital marketing & Brand management</h1>
+                <p style="margin-bottom: 40px;">We'll monitor your sales, lead generation, and conduct efficient online business growth analysis for effective strategies.</p>
+            <a href="{% url 'service' %}"><button class="button-18" role="button">Learn More</button></a>
+        </div>
+    </div>
+    
+</section>
+
+<!-- digital ERPS  -->
+
+<section class="container sectionmb">
+    <div class="digital wow fadeInUp" >
+        <h3 style="width: 130px;" class="section-title-orange">Products</h3>
+        <h1 style="margin-bottom: 20px;">Digital Business Solution Suite</h1>
+        <p >crafting websites, developing e-commerce platforms, creating mobile apps, and implementing ERP software for efficiency.</p>
+        <a target="_blank" href="https://jerintechnology.com/"><button class="button-18" role="button">Explore &nbsp; &rarr;</button></a>
+    </div>
+    <div class="below-digital">
+        <div class="dig-left ">
+                <div class="card-dig wow slideInLeft" >
+                    <h2>Websites & E - commerce </h2>
+                    <p>We'll create a website for your business, including an e-commerce platform.</p>
+                </div>
+                <div class="card-dig wow slideInLeft" data-wow-delay=".05s">
+                    <h2>Web & Android Apps for Business</h2>
+                    <p>We develop various web apps and Android apps tailored to your needs.</p>
+                </div>
+                <div class="card-dig wow slideInLeft" data-wow-delay=".1s">
+                    <h2>Billing & ERP Software's</h2>
+                    <p>We offer ERP's with management software for efficient hotel and hospital management. </p>
+                </div>
+        </div>
+        <div class="dig-right wow slideInRight">
+            
+            <img src="{% static 'img/erp.png' %}" alt="" srcset="">
+
+        </div>
+    </div>
+   
+
+</section>
+
+<!-- join us details  -->
+<section style="background-color: #F3F3F3;" class="sectionmb " >
+    <div class="container join-steps">
+        <div class="join-steps-left wow slideInLeft">
+            <h3 style="width: 130px;" class="section-title-green">Proccess</h3>
+            <h1 style="margin-bottom: 20px;">There have some easy steps to join with us!</h1>
+            <!-- <p style="margin-bottom: 40px;width: 450px;">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy</p> -->
+            <a href="{% url 'contactus' %}"><button class="button-18" role="button">Join With Us</button></a>
+     
+
+        </div>
+        <div class="join-steps-right wow slideInRight">
+            <div class="join-step-card">
+                <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="27.0565" cy="26.1658" r="26.1658" fill="#FFCC4A"/>
+                    <path d="M25.3409 35.4319V21.5219C24.8989 21.8426 24.4829 22.0939 24.0929 22.2759C23.7115 22.4579 23.3172 22.5966 22.9099 22.6919L22.5719 20.0659C22.9792 19.9619 23.4169 19.7626 23.8849 19.4679C24.3615 19.1732 24.7992 18.8309 25.1979 18.4409C25.5965 18.0509 25.8955 17.6479 26.0949 17.2319H28.3309V35.4319H25.3409Z" fill="#181818"/>
+                    </svg>                            
+                <div class="join-step-desc">
+                    <h3>Consult with us</h3>
+                    <p>Connect with us for a consultation and seamless processing based on your preferences.</p>
+                </div>
+            </div>
+            <div class="hr-line"></div>
+            <div class="join-step-card">
+                <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="27.0565" cy="26.3797" r="26.1658" fill="#4EAF4E"/>
+                    <path d="M22.7669 35.6328L27.6289 28.2098C28.2269 27.2911 28.7165 26.4981 29.0979 25.8308C29.4879 25.1634 29.7739 24.5654 29.9559 24.0368C30.1465 23.4994 30.2419 22.9838 30.2419 22.4898C30.2419 21.6838 30.0165 21.0511 29.5659 20.5918C29.1152 20.1324 28.4869 19.9028 27.6809 19.9028C26.7882 19.9028 25.9779 20.1151 25.2499 20.5398C24.5305 20.9558 23.8762 21.4584 23.2869 22.0478L22.9099 18.9668C23.6205 18.3948 24.4092 17.9354 25.2759 17.5888C26.1425 17.2421 27.1219 17.0688 28.2139 17.0688C29.3145 17.0688 30.2332 17.2941 30.9699 17.7448C31.7152 18.1954 32.2699 18.7934 32.6339 19.5388C33.0065 20.2841 33.1929 21.1074 33.1929 22.0088C33.1929 22.7454 33.0932 23.4648 32.8939 24.1668C32.6945 24.8601 32.3782 25.6184 31.9449 26.4418C31.5115 27.2564 30.9439 28.1968 30.2419 29.2628L27.8759 32.8378H33.8689V35.6328H22.7669Z" fill="white"/>
+                    </svg>
+                                             
+                <div class="join-step-desc">
+                    <h3>Setup Account</h3>
+                    <p>We'll create an account for you on our platform and initiate the processing.</p>
+                </div>
+            </div>
+            <div class="hr-line"></div>
+            <div class="join-step-card">
+                <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="27.0565" cy="26.3797" r="26.1658" fill="#181818"/>
+                    <path d="M27.6029 36.0098C26.5455 36.0098 25.5749 35.8841 24.6909 35.6328C23.8069 35.3728 23.0572 35.0824 22.4419 34.7618L23.1829 32.1488C23.8155 32.4868 24.5002 32.7771 25.2369 33.0198C25.9735 33.2538 26.7622 33.3708 27.6029 33.3708C28.6255 33.3708 29.4315 33.1324 30.0209 32.6558C30.6189 32.1704 30.9179 31.4728 30.9179 30.5628C30.9179 29.6181 30.6145 28.8901 30.0079 28.3788C29.4012 27.8588 28.4739 27.5988 27.2259 27.5988H25.6399V24.8038H27.2129C28.2182 24.8038 28.9939 24.5698 29.5399 24.1018C30.0945 23.6338 30.3719 22.9881 30.3719 22.1648C30.3719 21.3848 30.1335 20.7824 29.6569 20.3578C29.1889 19.9331 28.5129 19.7208 27.6289 19.7208C26.8922 19.7208 26.1989 19.8464 25.5489 20.0978C24.8989 20.3404 24.2575 20.6524 23.6249 21.0338L23.1569 18.2388C23.7809 17.9094 24.4959 17.6364 25.3019 17.4198C26.1165 17.1944 27.0049 17.0818 27.9669 17.0818C29.1282 17.0818 30.1119 17.2854 30.9179 17.6928C31.7239 18.0914 32.3349 18.6461 32.7509 19.3568C33.1669 20.0674 33.3749 20.8778 33.3749 21.7878C33.3749 22.9664 33.0499 23.9631 32.3999 24.7778C31.7499 25.5838 30.8485 26.1254 29.6959 26.4028L29.6829 25.8048C30.9915 26.0301 32.0359 26.5414 32.8159 27.3388C33.6045 28.1361 33.9989 29.2021 33.9989 30.5368C33.9989 31.6981 33.7259 32.6861 33.1799 33.5008C32.6339 34.3154 31.8799 34.9394 30.9179 35.3728C29.9559 35.7974 28.8509 36.0098 27.6029 36.0098Z" fill="white"/>
+                    </svg>
+                                               
+                <div class="join-step-desc">
+                    <h3>Payment & Boost</h3>
+                    <p>After your payment, your business will begin to grow through our streamlined processes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section style="background-color: white;"  class=" sectionmb">
+    <div  class="container paddingvertical">
+        <div style="text-align: left;margin-bottom: 40px;">
+            <h3 style="width: 200px;" class="section-title-blue">Client Feedback</h3>
+        <h1 class="testimonal-p">Here Are Some Client Feedback Messages</h1>
+        </div>
+        
+        <div  style="margin-left: 20px;" class="feedbacks owl-carousel owl-theme wow fadeInUp ">
+            {% for i in stories %}
+            <div class="feedback-card item">
+                <div class="feedback-card-header">
+                    {% if i.isfemale %}
+                    <dotlottie-player class="abotus-ani" src="{% static 'img/JSON/female.lottie' %}" background="transparent" speed="1" style="width: 60px; height: 60px;" loop autoplay></dotlottie-player>
+    
+                    {% else %}
+                    <dotlottie-player class="abotus-ani" src="{% static 'img/JSON/male.lottie' %}" background="transparent" speed="1" style="width: 60px; height: 60px;" loop autoplay></dotlottie-player>
+                    {% endif %}
+                   
+                   
+                     
+                    <div >
+                        <h5>{{i.name}}</h5>
+                        <h4 style="width: 190px;" class="section-title-green">{{i.position}}</h4>
+                    </div>
+                </div>
+                <div class="feedback-card-body">
+                    <div class="quote-float">
+                        <svg width="47" height="48" viewBox="0 0 47 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="23.5234" cy="23.6762" r="23.3671" fill="#181818"/>
+                            <path d="M29.4087 32.1398L25.4757 32.1398L27.9597 24.7568L25.5447 24.7568L25.5447 17.4428L32.9967 17.4428L32.9967 24.0668L29.4087 32.1398ZM18.3687 32.1398L14.4357 32.1398L16.9197 24.7568L14.5047 24.7568L14.5047 17.4428L21.9567 17.4428L21.9567 24.0668L18.3687 32.1398Z" fill="white"/>
+                            </svg>
+                            
+                    </div>
+                   {{i.content}}
+    
+                </div>
+    
+            </div>
+            {% endfor %}
+          
+          
+            
+            
+        </div>
+        
+
+    </div>
+   
+
+
+</section>
+
+<!-- blogs  -->
+
+<section class="container sectionmb">
+    <div style="display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;">
+        <div style="text-align: left;" class="wow slideInLeft">
+            <h3 style="width: 100px;" class="section-title-green">Blogs</h3>
+       <h1 class="testimonal-p">Take a look at our latest Articles & Resources</h1>
+ 
+        </div>
+        <div class="wow slideInRight">
+
+            <a href="{% url 'allblogs' %}"><button role="button" class="button-27">More Blogs</button></a>
+         
+        </div>
+    </div>
+
+    <div class="blogs owl-carousel owl-theme wow fadeInUp">
+        {% for i in blogs %}
+        <div class="blogs-card item">
+            
+            <img src="{{i.featured_image.url}}" alt="">
+            <div style="text-align: left;">
+                <h5>{{i.title}}</h5>
+                <p style="margin-bottom: 14px;">{{i.short_description}}</p>
+                <div class="hr-line"></div>
+                <div class="blogfooter">
+                    <p style="margin: 0;">{{i.date}}</p>
+                    <button class="button-18">read more <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33 32" fill="none">
+                        <path d="M8.5 15.917H25.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.918 7.5L25.3348 15.9168L16.918 24.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></button>
+
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+        <div class="blogs-card item">
+            <img src="{% static 'img/blogs.png' %}" alt="">
+            <div style="text-align: left;">
+                <h5>Consulting Fees Study 2019 (And How To Raise Your Rates)</h5>
+                <p style="margin-bottom: 14px;">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster </p>
+                <div class="hr-line"></div>
+                <div class="blogfooter">
+                    <p style="margin: 0;">September 1, 2022</p>
+                    <button class="button-18">read more <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33 32" fill="none">
+                        <path d="M8.5 15.917H25.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.918 7.5L25.3348 15.9168L16.918 24.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></button>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="blogs-card item">
+            <img src="{% static 'img/blogs.png' %}" alt="">
+            <div style="text-align: left;">
+                <h5>Consulting Fees Study 2019 (And How To Raise Your Rates)</h5>
+                <p style="margin-bottom: 14px;">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster </p>
+                <div class="hr-line"></div>
+                <div class="blogfooter">
+                    <p style="margin: 0;">September 1, 2022</p>
+                    <button class="button-18">read more <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33 32" fill="none">
+                        <path d="M8.5 15.917H25.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.918 7.5L25.3348 15.9168L16.918 24.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></button>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="blogs-card item">
+            <img src="{% static 'img/blogs.png' %}" alt="">
+            <div style="text-align: left;">
+                <h5>Consulting Fees Study 2019 (And How To Raise Your Rates)</h5>
+                <p style="margin-bottom: 14px;">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster </p>
+                <div class="hr-line"></div>
+                <div class="blogfooter">
+                    <p style="margin: 0;">September 1, 2022</p>
+                    <button class="button-18">read more <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33 32" fill="none">
+                        <path d="M8.5 15.917H25.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16.918 7.5L25.3348 15.9168L16.918 24.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></button>
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</section>
+
+
+
+{% endblock content %}

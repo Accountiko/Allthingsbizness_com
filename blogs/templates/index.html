@@ -1,0 +1,281 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Allthingbiznes</title>
+
+        <!-- meta data  -->
+        <meta name="title" content="{% block meta_title %} {% endblock %}">
+        <meta name="description" content="{% block meta_des %} {% endblock %}">
+        <meta name="keywords" content="{% block meta_key %} {% endblock %}">
+        <meta property="og:title" content="{% block og_meta_title %} {% endblock %}" />
+        <meta property="og:description" content="{% block og_meta_des %} {% endblock %}" />
+        <meta property = "og:site_name" content = "Allthingbiznes"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{% block meta_url %} {% endblock %}" />
+
+        <!-- CSS -->   
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Ephesis&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="{% static 'img/logo1.png' %}">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+
+       
+
+
+        
+    
+    	<!-- Top menu -->
+        
+		<nav class="navbar navbar-fixed-top navbar-no-bg" role="navigation">
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="msg">
+            <div {% if message.tags %} style="margin: 0;" class=" alert alert-{{ message.tags }} alert-dismissible" {% endif %} role="alert">
+            
+                {{ message }}<a href="#" class="close" data-dismiss="alert" aria-label="close"><strong>&times;</strong></a>
+              </div>
+        </div>
+      
+          {% endfor %}
+          {% endif %}
+            <div class="overhead">
+                <div class="time">
+                    <i class="fa fa-clock-o"></i><span>Monday - Friday 8AM - 9PM</span>
+                </div>
+                <div class="location">
+                    <i class="fa fa-location-arrow"></i><span>Chrompet, Chennai</span>
+
+                </div>
+                <div class="social">
+                    <a href="https://twitter.com/allthingbiznes"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/allthingsbiznes/"><i class="fa fa-instagram"></i></a>
+                   <a href="https://www.linkedin.com/in/all-things-biznes-250736284/"><i class="fa fa-linkedin"></i></a> 
+                </div>
+                    
+            </div>
+			<div class="container">
+                
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{% url 'home' %}">Bootstrap Navbar Menu Template</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="top-navbar-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><a href="{% url 'about-founder' %}">About Our Founder</a></li>
+						<li><a href="{% url 'aboutus' %}">About Us</a></li>
+						<li><a href="{% url 'service' %}">Services</a></li>
+						<li><a href="{% url 'allblogs' %}">Blogs</a></li>
+						<li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                        <!-- <button class="button-62" role="button"><i class="fa fa-phone"></i> +91 93603 - 30781</a></button> -->
+						<li><a class="btn-nav" href="tel:+91 70105 28534"><i class="fa fa-phone"></i> +91 70105 28534</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+        {% block content %}
+  
+        {% endblock content %}
+        
+    
+        
+
+        <section class="container sectionmb join-card wow slideInLeft">
+            <div class="join-left ">
+                <h5 style="background-color: #111311;" class="section-title-blue">Contact </h5>
+                <h1>Feel Free To Talk?</h1>
+                <p>Feel free to call us for consultancy inquiries to obtain comprehensive information about our services.</p>
+                    <form method="post" action="{% url 'getemail' %}" class="quote">
+                        {% csrf_token %}
+                        <input placeholder="Enter Email" name="email" class="inputs" />
+                        <button type="submit" role="button" class="button-27">Get Quote</button>
+                    </form>
+            </div>
+            <div class="join-right">
+                
+                <dotlottie-player src="{% static 'img/JSON/EMAIL POPUOP.lottie' %}" background="transparent" speed="1" style="width: 350px; height: auto;" loop autoplay></dotlottie-player>
+            </div>
+
+        </section>
+
+        <footer style="background-color: #111311;color: white;padding-bottom: 50px;" class="footer mt-5 paddingvertical"> 
+            
+            <div class="container"> 
+                
+                <div style="text-align: left;" class="row"> 
+                
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mt-3"> 
+                        <h5 style="color: #FF5F1D;" class="text-uppercase mb-4 font-weight-bold">Allthingbiznes</h5> 
+                        <p class="text-white">All Things Business equips and supports entrepreneurs in starting, growing, and succeeding in their ventures through idea exchange, advising, marketing support, and mentorship opportunities.</p>  
+                        <div class="flexs" style="margin-top: 20px;">
+                            <a href="https://twitter.com/allthingbiznes">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_203_256)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M17.8175 6.98939C17.4645 6.48139 16.5205 5.76739 14.9915 6.07539C14.0995 6.25439 13.5665 6.69539 13.2275 7.27739C12.8665 7.89739 12.6915 8.74039 12.6915 9.72139C12.6915 9.98661 12.5862 10.241 12.3986 10.4285C12.2111 10.616 11.9567 10.7214 11.6915 10.7214C9.32553 10.7214 7.07353 10.0184 5.17853 8.11739C5.03546 8.88869 4.97911 9.67357 5.01053 10.4574C5.06353 11.5434 5.32253 12.6324 5.93753 13.5654C6.54253 14.4824 7.53753 15.3224 9.20153 15.8504C9.36458 15.9021 9.51164 15.9948 9.62865 16.1196C9.74565 16.2444 9.82869 16.3971 9.86982 16.5631C9.91096 16.7292 9.90881 16.903 9.86359 17.0679C9.81837 17.2329 9.73158 17.3835 9.61153 17.5054C9.07853 18.0521 8.47445 18.5246 7.81553 18.9104C8.87553 19.0204 9.89753 19.0284 10.8455 18.9424C12.7655 18.7684 14.2945 18.2194 15.2505 17.4424C17.2635 15.8104 18.3405 13.3764 18.1405 9.29839C18.1065 8.62839 18.7535 7.90539 19.0655 7.35639C18.5945 7.44439 18.1225 7.42839 17.8175 6.98939ZM4.59453 4.98439C4.77558 4.96335 4.95895 4.99219 5.12479 5.0678C5.29064 5.14342 5.43267 5.26292 5.53553 5.41339C7.01153 7.57239 8.78353 8.47039 10.7505 8.67439C10.8465 7.83339 11.0735 7.00239 11.5005 6.27039C12.1265 5.19639 13.1445 4.40639 14.5985 4.11439C16.6085 3.71039 18.1385 4.43839 19.0255 5.32939L20.8175 4.99439C21.0051 4.95926 21.1987 4.9785 21.3757 5.04984C21.5526 5.12119 21.7054 5.24166 21.8161 5.39704C21.9268 5.55242 21.9908 5.73623 22.0004 5.92677C22.0101 6.11731 21.965 6.30663 21.8705 6.47239L20.1505 9.49439C20.3075 13.8554 19.0955 16.8994 16.5115 18.9964C15.1415 20.1084 13.1795 20.7394 11.0265 20.9344C8.85653 21.1304 6.40353 20.8934 3.96553 20.1814C3.75722 20.1206 3.57433 19.9938 3.44446 19.8199C3.31458 19.6461 3.24477 19.4347 3.24556 19.2178C3.24635 19.0008 3.3177 18.7899 3.44884 18.617C3.57998 18.4442 3.76379 18.3186 3.97253 18.2594C5.19853 17.9104 6.13253 17.6094 6.97553 17.0824C5.77653 16.4464 4.89353 15.6144 4.26853 14.6664C3.40053 13.3484 3.07853 11.8784 3.01453 10.5534C2.95053 9.22839 3.14153 8.00039 3.34353 7.11539C3.45853 6.61039 3.59253 6.10439 3.77753 5.62039C3.84279 5.44978 3.95353 5.30031 4.09773 5.18818C4.24194 5.07606 4.4131 5.00558 4.59453 4.98439Z"
+                                            fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_203_256">
+                                            <rect width="24" height="24" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/allthingsbiznes/">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 17.7383 21.3889 19.2135 20.3012 20.3012C19.2135 21.3889 17.7383 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 6.26174 2.61107 4.78649 3.69878 3.69878C4.78649 2.61107 6.26174 2 7.8 2ZM7.6 4C6.64522 4 5.72955 4.37928 5.05442 5.05442C4.37928 5.72955 4 6.64522 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4C17.3548 20 18.2705 19.6207 18.9456 18.9456C19.6207 18.2705 20 17.3548 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5C17.5815 5.5 17.8995 5.6317 18.1339 5.86612C18.3683 6.10054 18.5 6.41848 18.5 6.75C18.5 7.08152 18.3683 7.39946 18.1339 7.63388C17.8995 7.8683 17.5815 8 17.25 8C16.9185 8 16.6005 7.8683 16.3661 7.63388C16.1317 7.39946 16 7.08152 16 6.75C16 6.41848 16.1317 6.10054 16.3661 5.86612C16.6005 5.6317 16.9185 5.5 17.25 5.5ZM12 7C13.3261 7 14.5979 7.52678 15.5355 8.46447C16.4732 9.40215 17 10.6739 17 12C17 13.3261 16.4732 14.5979 15.5355 15.5355C14.5979 16.4732 13.3261 17 12 17C10.6739 17 9.40215 16.4732 8.46447 15.5355C7.52678 14.5979 7 13.3261 7 12C7 10.6739 7.52678 9.40215 8.46447 8.46447C9.40215 7.52678 10.6739 7 12 7ZM12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                            <a href="https://goo.gl/maps/4TUXJ89LJch9Q5zB8">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M3.064 7.51C3.89601 5.85324 5.17237 4.46051 6.75043 3.48747C8.32849 2.51443 10.1461 1.99942 12 2C14.695 2 16.959 2.991 18.69 4.605L15.823 7.473C14.786 6.482 13.468 5.977 12 5.977C9.395 5.977 7.19 7.737 6.405 10.1C6.205 10.7 6.091 11.34 6.091 12C6.091 12.66 6.205 13.3 6.405 13.9C7.191 16.264 9.395 18.023 12 18.023C13.345 18.023 14.49 17.668 15.386 17.068C15.9054 16.726 16.3501 16.2822 16.6932 15.7635C17.0363 15.2448 17.2706 14.6619 17.382 14.05H12V10.182H21.418C21.536 10.836 21.6 11.518 21.6 12.227C21.6 15.273 20.51 17.837 18.618 19.577C16.964 21.105 14.7 22 12 22C10.6866 22.0005 9.38604 21.7422 8.17254 21.2399C6.95905 20.7375 5.85645 20.0009 4.92776 19.0722C3.99907 18.1436 3.2625 17.041 2.76013 15.8275C2.25777 14.614 1.99948 13.3134 2 12C2 10.386 2.386 8.86 3.064 7.51Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/all-things-biznes-250736284/">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.93945 5.00002C6.93919 5.53046 6.72822 6.03906 6.35296 6.41394C5.9777 6.78883 5.46889 6.99929 4.93845 6.99902C4.40802 6.99876 3.89942 6.78779 3.52453 6.41253C3.14965 6.03727 2.93919 5.52846 2.93945 4.99802C2.93972 4.46759 3.15069 3.95899 3.52595 3.5841C3.90121 3.20922 4.41002 2.99876 4.94045 2.99902C5.47089 2.99929 5.97949 3.21026 6.35437 3.58552C6.72926 3.96078 6.93972 4.46959 6.93945 5.00002ZM6.99945 8.48002H2.99945V21H6.99945V8.48002ZM13.3195 8.48002H9.33945V21H13.2795V14.43C13.2795 10.77 18.0495 10.43 18.0495 14.43V21H21.9995V13.07C21.9995 6.90002 14.9395 7.13002 13.2795 10.16L13.3195 8.48002Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                        </div>                 
+                    </div> 
+                
+                   
+                
+                    <div  class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 f-m ml-4"> 
+                        <h5 style="color: #FF5F1D;" class="text-uppercase mb-4 font-weight-bold">Quick Links</h5> 
+                        <p><a href="{% url 'home' %}"  class="text-white">Home</a></p> 
+                        <p><a href="{% url 'aboutus' %}" class="text-white">About us</a></p> 
+                        <p><a href="{% url 'about-founder' %}" class="text-white">About our Founder</a></p> 
+                        <p><a href="{% url 'service' %}" class="text-white">Services</a></p> 
+                        <p><a href="{% url 'allblogs' %}" class="text-white">Blogs</a></p> 
+
+                        <p><a href="{% url 'contactus' %}" class="text-white">Contact</a></p> 
+                    </div> 
+                
+                    
+                
+                    <div  class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3 "> 
+                        <h5 style="color: #FF5F1D;" class="text-uppercase mb-4 font-weight-bold">Our business</h5> 
+                        <p><a target="_blank" href="http://accountiko.in/" class="text-white">Accountiko India</a></p> 
+                        <p><a target="_blank" href="http://accountiko.com/" class="text-white">Accountiko UAE</a></p> 
+                        <p><a target="_blank" href="https://jerintechnology.com/" class="text-white">Jerin Technology</a></p> 
+                        <p><a target="_blank" href="https://ploxygen.org/" class="text-white">Ploxygen Foundations</a></p> 
+                        <p><a target="_blank" href="https://saadanacademy.com/" class="text-white">Saadan Academy</a></p> 
+                    </div> 
+                
+                    
+                
+                    <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mt-3 "> 
+                        <h5 style="color: #FF5F1D;" class="text-uppercase mb-4 font-weight-bold">Contact us</h5> 
+                        <p class="text-white"><i style="margin-right: 9px;" class="fa fa-map-marker"></i>No. 7, Kulakarai street, Sasthri colony, Chromepet, Chennai - 600 044.</p>
+                        <p class="text-white"><i style="margin-right: 9px;"  class="fa fa-envelope"></i>mail@allthingsbiznes.com</p> 
+                        <p class="text-white"><i style="margin-right: 9px;"  class="fa fa-phone"></i>+91 70105 28534</p> 
+                    </div> 
+                </div> 
+            </div> 
+            <div style="margin-top: 20px;" class="footer-copyright">Copyright © 2023 <a href="/">Allthingsbiznes.com</a>  </div>
+        </footer> 
+
+
+
+        
+
+        
+
+       
+
+
+        <!-- Javascript -->
+        <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
+        <script src="{% static 'js/retina-1.1.0.min.js' %}"></script>
+        <script src="{% static 'js/waypoints.min.js' %}"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      
+      
+       <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+      <script>
+       $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    padding:10,
+    nav:true,
+    autoPlay:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:3
+        }
+    }
+});
+function showForm() {
+      document.getElementById('overlay').style.display = 'flex';
+    }
+   function hidePops() {
+    document.getElementById('overlay').style.display = 'none';
+  }
+  
+    // Set a timeout to call the showForm function after 3 seconds
+    
+    setTimeout(showForm, 5000);
+
+      </script>
+
+
+<script>
+ $(window).load(function() {
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 0,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+});
+    </script>
+    </body>
+
+</html>

@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+{% load static %}
+
+
+{% block content %}
+<div style="height: 60vh;background-image:url('{% static 'img/backgrounds/1.jpg' %}');" class="top-content top-content-pages ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 hero-card-pages ">
+                <div>
+                    <h4 style="width: 200px;background-color: #FFCC4A;color: #111311;" class="section-title-orange" >Allthingsbiznes</h4>
+                    <h1 style="text-align: left;">Creative Services For Boost Your Business Growth</h1>
+                   
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+
+<section class="sectionmb paddingvertical">
+    <section class="container sectionmb">
+        <div style="display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;">
+            <div style="text-align: left;">
+                <h3 style="width: 100px;" class="section-title-green">Blogs</h3>
+           <h1 class="testimonal-p">Take a look at our latest articles & resources</h1>
+     
+            </div>
+            
+        </div>
+    
+        <div class="blogs ">
+            {% for i in object_list %}
+            <div class="blogs-card ">
+                
+                <img src="{{i.featured_image.url}}" alt="">
+                <div style="text-align: left;">
+                    <h5> <a href="{{i.get_absolute_url}}">{{i.title}}</a></h5>
+                    <p style="margin-bottom: 14px;">{{i.short_description}}</p>
+                    <div class="hr-line"></div>
+                    <div class="blogfooter">
+                        <p style="margin: 0;">{{i.date}}</p>
+                        <button class="button-18">read more <svg style="margin-left: 5px;" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 33 32" fill="none">
+                            <path d="M8.5 15.917H25.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.918 7.5L25.3348 15.9168L16.918 24.3336" stroke="#fff" stroke-width="1.8036" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg></button>
+    
+                    </div>
+                </div>
+    
+            </div>
+            {% endfor %}
+           
+            
+        </div>
+    
+    </section>
+    
+</section>
+
+{% endblock %}
